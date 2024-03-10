@@ -33,17 +33,17 @@ class SimpleCNN(nn.Module):
         self.conv1 = nn.Conv2d(1, 32, kernel_size=3, stride=1, padding=1)
         self.pool1 = nn.MaxPool2d(kernel_size=2, stride=2)
         self.batch_norm1 = nn.BatchNorm2d(32)
-        self.dropout1 = nn.Dropout(0.25)
+        self.dropout1 = nn.Dropout(0.15)
         
         self.conv2 = nn.Conv2d(32, 64, kernel_size=3, stride=1, padding=1)
         self.pool2 = nn.MaxPool2d(kernel_size=2, stride=2)
         self.batch_norm2 = nn.BatchNorm2d(64)
-        self.dropout2 = nn.Dropout(0.25)
+        self.dropout2 = nn.Dropout(0.15)
         
         self.conv3 = nn.Conv2d(64, 64, kernel_size=3, stride=1, padding=1)
         self.pool3 = nn.MaxPool2d(kernel_size=2, stride=2)
         self.batch_norm3 = nn.BatchNorm2d(64)
-        self.dropout3 = nn.Dropout(0.25)
+        self.dropout3 = nn.Dropout(0.15)
 
         # Remove the GRU layer
         # Add a global average pooling layer
@@ -194,7 +194,7 @@ optimizer = optim.Adam(model.parameters(), lr=0.001)
 scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.5)
 
 # Training loop
-num_epochs = 50
+num_epochs = 60
 train_losses = []
 val_losses = []
 train_accuracies = []
